@@ -1,0 +1,14 @@
+|  Array Type    |  doublerAppend |  doublerInsert   |    getSizedArray |
+| ---            | ---            | ---              | ---              |
+|tinyArray       |124.6 μs        |69.8 μs           | 177.7 μs         |
+| ---            | ---            |---               | ---              |
+|smallArray      |197 μs          |134 μs            | 180.8 μs         |
+| ---            | ---            | ---              | ---              |
+|mediumArray     |196.4 μs        |207 μs            | 364.3 μs         |
+| ---            | ---            | ---              | ---              |
+|largeArray      |710.8 μs        |8.5099 ms         | 970.9 μs         |
+| ---            | ---            | ---              | ---              |
+|extraLargeArray |4.0462 ms       |923.5311 ms       | 20.9458 ms       |
+| ---            | ---            | ---              | ---              |
+
+The doublerAppend and getSizedArray functions both have a time complexity of O(n). The doublerAppend function runs a push command one time for each element in the array that was a passed to it, which makes it's run time vary depending on the size of the array that's passed, essentially O(n). The getSizedArray also acts similar to the doublerAppend function, however the run time is dependent on the value of the number that is passed. getSizeArray takes in an integer and creates an array which has the same number of elements as the integer passed. This makes the getSizedArray's runtime have a linear relation to the number that's passed as a param. On the other hand, doblerInsert has a time complexity of O(n^2), which is much larger than the previous two. The doublerInsert acts similarly to the doblerAppend function, but there is one key difference between the two. Unlike the doublerAppend function, doublerInsert places each new element at the beginning of the array. This increases the time complexity because each element within the array must shift indexes to make space for the incoming element. This act creates a loop that must run once for each element added to the front of the array. The doublerInsert function also nested this .unshift() within a for loop. This creates two loops that must run once for each element added to the array, essentially making the time complexity O(n^2).
